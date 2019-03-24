@@ -16,6 +16,9 @@ class Table extends React.Component {
 
     //3.Spread the old arr list & adding the new item from the user
     this.setState({ buyItems: [...this.state.buyItems, newItem] });
+
+    //4.Reset the value in placeHolder
+    this.addForm.reset();
   }
 
   render() {
@@ -30,6 +33,7 @@ class Table extends React.Component {
             onSubmit={e => {
               this.addItem(e);
             }}
+            ref={input => (this.addItem = input)}
           >
             <div className="form-group">
               <label className="sr-only" htmlFor="newItemInput">
